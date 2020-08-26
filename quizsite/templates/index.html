@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Quiz project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#but1").click(function()
+            {
+                    $(".rb").show();
+                    $(".rb").attr("disabled",true);
+            });
+        });
+        // function getanswers()
+        // {
+        //     document.getElementById(Useranswers).innerHTML="";
+        //     var e=document.getElementsByTagName('input')
+        //     for(i=0;i<=e.length;i++)
+        //     {
+        //         if(e[i].type = "radio")
+        //         {
+        //             if(e[i].checked)
+        //             {
+        //                 document.getElementById(Useranswers).innerHTML+="Q "+e[i].name+"The answer you selected is :"+e[i].value+"<br/>";
+        //             }
+        //         }
+        //     }
+        // }
+    </script>
+</head>
+<body>
+    <centre>
+        <h1>Quizzi</h1>
+        <hr/>
+    </centre>
+    <div style="padding-left: 30px;">
+        {% for i in Exam%}
+        <table>
+            <tr>
+                <td>{{i.qnumber}} ) {{i.Question}} ?</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" name="{{i.qnumber}}" id ="Option1" class="rb" value = "{{i.Option1}}">{{i.Option1}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" name="{{i.qnumber}}"  id ="Option2" class="rb" value = "{{i.Option2}}">{{i.Option2}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" name="{{i.qnumber}}" id ="Option3" class="rb" value = "{{i.Option3}}">{{i.Option3}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" name="{{i.qnumber}}" id ="Option4" class="rb" value = "{{i.Option4}}">{{i.Option4}}</td>
+            </tr>
+            <tr>
+                <td><label id = "corans" class="rb" style="display: none;color:green">The correct answer is {{i.Corrans}}</label></td>
+            </tr>
+            </table>
+            <hr>
+
+        </table>
+
+      {%endfor%}
+        <hr/>
+
+        <input type = "submit" value="Click for Results" id="but1" onclick="getanswers();"/>
+        <hr>
+        <!-- <b id = "Useranswers">    </b> -->
+    </div>
+</body>
+    
+</body>
+</html>
