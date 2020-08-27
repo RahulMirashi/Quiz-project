@@ -1,0 +1,36 @@
+tr{
+    
+}
+td{
+    
+}
+.option{
+    padding :0 1rem;
+}
+header{
+    background-color:none;
+    padding:0.1rem;
+    padding-top: 2rem;
+    color:#decdc3;
+    font-family: 'Balsamiq Sans', cursive;
+    font-weight: 700;
+}
+
+.question{
+    margin: 2rem 0;
+    padding: 2rem 3rem;
+    margin-top:1rem;
+    border: 1px solid #decdc3;
+    border-radius: 2rem;
+    background-color: #16213e;
+    color:white;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.bgcolor{
+    background-color: none;
+    border: 1px solid white;
+    border-top:none;
+}
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg");
+}

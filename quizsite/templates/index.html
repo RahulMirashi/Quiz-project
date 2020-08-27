@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Quiz project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quizSite/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            $("#but1").click(function()
-            {
-                    $(".rb").show();
-                    $(".rb").attr("disabled",true);
+        $(document).ready(function () {
+            $("#but1").click(function () {
+                $(".rb").show();
+                $(".rb").attr("disabled", true);
             });
         });
         // function getanswers()
@@ -31,45 +36,71 @@
         // }
     </script>
 </head>
+
 <body>
-    <centre>
-        <h1>Quizzi</h1>
-        <hr/>
-    </centre>
-    <div style="padding-left: 30px;">
-        {% for i in Exam%}
-        <table>
-            <tr>
-                <td>{{i.qnumber}} ) {{i.Question}} ?</td>
-            </tr>
-            <tr>
-                <td><input type = "radio" name="{{i.qnumber}}" id ="Option1" class="rb" value = "{{i.Option1}}">{{i.Option1}}</td>
-            </tr>
-            <tr>
-                <td><input type = "radio" name="{{i.qnumber}}"  id ="Option2" class="rb" value = "{{i.Option2}}">{{i.Option2}}</td>
-            </tr>
-            <tr>
-                <td><input type = "radio" name="{{i.qnumber}}" id ="Option3" class="rb" value = "{{i.Option3}}">{{i.Option3}}</td>
-            </tr>
-            <tr>
-                <td><input type = "radio" name="{{i.qnumber}}" id ="Option4" class="rb" value = "{{i.Option4}}">{{i.Option4}}</td>
-            </tr>
-            <tr>
-                <td><label id = "corans" class="rb" style="display: none;color:green">The correct answer is {{i.Corrans}}</label></td>
-            </tr>
+
+    <div class="container-xl bgcolor" style="padding:0">
+        <header>
+            <h1 style="text-align: center;">Quizzi</h1>
+        </header>
+
+        <div style="padding: 30px;">
+            {% for i in Exam%}
+            <div class="question">
+                <table>
+                    <tr>
+                        <td>{{i.qnumber}} ) {{i.Question}} ?</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{i.qnumber}}" id="Option1" class="rb" value="{{i.Option1}}"><span
+                                class="option">{{i.Option1}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{i.qnumber}}" id="Option2" class="rb" value="{{i.Option2}}"><span
+                                class="option">{{i.Option2}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{i.qnumber}}" id="Option3" class="rb" value="{{i.Option3}}"><span
+                                class="option">{{i.Option3}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{i.qnumber}}" id="Option4" class="rb" value="{{i.Option4}}"><span
+                                class="option">{{i.Option4}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label id="corans" class="rb" style="display: none;color:limegreen">The correct answer is
+                                {{i.Corrans}}</label></td>
+                    </tr>
+                </table>
+            </div>
+
+
             </table>
-            <hr>
 
-        </table>
+            {%endfor%}
 
-      {%endfor%}
-        <hr/>
 
-        <input type = "submit" value="Click for Results" id="but1" onclick="getanswers();"/>
-        <hr>
-        <!-- <b id = "Useranswers">    </b> -->
+            <div style="text-align: center;"><input type="submit" value="Click for Results" id="but1"
+                    onclick="getanswers();"></div>
+
+            <!-- <b id = "Useranswers">    </b> -->
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
-    
-</body>
+
+
+
 </html>
